@@ -332,28 +332,6 @@
       bindings = <&kp SQT>, <&caps_word>;
     };
 
-    appswtnxt: application_switch_next {
-      compatible = "zmk,behavior-tri-state";
-      #binding-cells = <0>;
-      bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
-      ignored-key-positions = <LT5 LM5>;
-    };
-
-    winswtnxt: window_switch_next {
-      compatible = "zmk,behavior-tri-state";
-      #binding-cells = <0>;
-      bindings = <&kt LGUI>, <&kp GRAVE>, <&kt LGUI>;
-      ignored-key-positions = <LB5 LM5>;
-    };
-
-    appPwinN: application_switch_previous_window_next {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&winswtnxt>, <&kp GRAVE>;
-      mods = <(MOD_LGUI|MOD_RGUI)>;
-      keep-mods = <(MOD_LGUI|MOD_RGUI)>;
-    };
-
     winPglobe: window_previous_globe {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
@@ -469,9 +447,9 @@
     NAV {
       display-name = "Navigation";
       bindings = <LAYER_ADAPTER(
-        &appPwinN,  &kp LG(N1),  &kp LG(N2),  &kp LG(N3),  &kp LG(N4),  &kp LG(N5),                         &none, &kp BTAB,     &kp MAC_FDPRV, &kp MAC_FDNXT, &kp TAB,      &none,
-        &appswtnxt, &kp LG(Q),   &kp LG(W),   &kp LG(E),   &kp LG(R),   &kp LG(T),  &kp LHYP,    &kp RHYP,  &none, &kp HOME,     &kp PG_DN,     &kp PG_UP,     &kp END,      &none,
-        &appPwinN,  LMT4(LG(A)), LMT3(LG(S)), LMT2(LG(D)), LMT1(LG(F)), NAV_LG_G,   &kp LMEH,    &kp RMEH,  &none, &kp LEFT,     &kp DOWN,      &kp UP,        &kp RIGHT,    &none,
+        &none,  &kp LG(N1),  &kp LG(N2),  &kp LG(N3),  &kp LG(N4),  &kp LG(N5),                         &none, &kp BTAB,     &kp MAC_FDPRV, &kp MAC_FDNXT, &kp TAB,      &none,
+        &none, &kp LG(Q),   &kp LG(W),   &kp LG(E),   &kp LG(R),   &kp LG(T),  &kp LHYP,    &kp RHYP,  &none, &kp HOME,     &kp PG_DN,     &kp PG_UP,     &kp END,      &none,
+        &none,  LMT4(LG(A)), LMT3(LG(S)), LMT2(LG(D)), LMT1(LG(F)), NAV_LG_G,   &kp LMEH,    &kp RMEH,  &none, &kp LEFT,     &kp DOWN,      &kp UP,        &kp RIGHT,    &none,
         &winPglobe, NAV_LG_Z,    NAV_LG_X,    NAV_LG_C,    NAV_LG_V,    &kp LG(B),  &kp HOME,    &kp PG_UP, &none, &kp MAC_WRDP, &kp MAC_STTL,  &kp MAC_ENDL,  &kp MAC_WRDN, &none,
                     &none,       &none,       &none,       &tog L_NAV,  &none,      &kp END,     &kp PG_DN, &none, &none,        &none,         &none,         &molock
       )>;
